@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Calculator </title>
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <h1> Calculator </h1>
+        <div class="cal-body">
+            <p class="name"> calculator</p>
+            <div>
+                <input class="screen" type="text" id="screen" placeholder="0" />
+            </div>
+            <div class="btn-body">
+                <button class="btn" onclick="pressLeftparanthesis()" > ( </button>
+                <button class="btn" onclick="pressRightparanthesis()" > ) </button>
+                <button class="btn s-btn" onclick="keyPressAC()"> DEL </button>
+                <button class="btn s-btn" onclick="keyPressAC()"> AC </button>
+
+                <button class="btn" onclick="keyPress(1)"> 1 </button>
+                <button class="btn" onclick="keyPress(2)"> 2 </button>
+                <button class="btn" onclick="keyPress(3)"> 3 </button>
+                <button class="btn s-btn" onclick="keyPress('+')"> + </button>
+
+                <button class="btn" onclick="keyPress(4)"> 4 </button>
+                <button class="btn" onclick="keyPress(5)"> 5 </button>
+                <button class="btn" onclick="keyPress(6)"> 6 </button>
+                <button class="btn s-btn" onclick="keyPress('-')"> - </button>
+
+                <button class="btn" onclick="keyPress(7)"> 7 </button>
+                <button class="btn" onclick="keyPress(8)"> 8 </button>
+                <button class="btn" onclick="keyPress(9)"> 9 </button>
+                <button class="btn s-btn " onclick="keyPress('*')"> x </button>
+
+                <button class="btn" onclick="keyPress('.')"> . </button>
+                <button class="btn" onclick="keyPress(0)"> 0 </button>
+                <button class="btn s-btn" onclick="evaluateExp()"> = </button>
+                <button class="btn s-btn" onclick="keyPress('/')"> / </button>
+            </div>
+        </div>
+    </body>
+    <script>
+        function keyPress(key){
+            const screenElement = document.getElementById("screen");
+            screenElement.value += key;
+        }
+        function pressLeftparanthesis(){
+            const screenElement = document.getElementById("screen");
+            screenElement.value += "(";
+        }
+        function pressRightparanthesis(){
+            const screenElement = document.getElementById("screen");
+            screenElement.value += ")";
+        }
+        function evaluateExp(){
+            const screenElement = document.getElementById("screen");
+            screenElement.value = eval(screenElement.value);
+        }
+        function keyPressAC(){
+            const screenElement = document.getElementById("screen");
+            screenElement.value = "" ;
+        }
+    </script>
+</html>
